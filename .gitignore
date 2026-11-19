@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+._*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Internal docs — do not push
+Integration Package 2022/
+VALA_GIFT_IMPLEMENTATION_PLAN.md
+*.sublime-*
+
+# Database
+*.sqlite
+*.db
+TEB Payment Gateway Integration Package/

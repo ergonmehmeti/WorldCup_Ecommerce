@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Styles ──────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #020617;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* ─── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #ec4899);
+  border-radius: 4px;
+}
+
+/* ─── Component Styles ──────────────────────────────── */
+@layer components {
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl 
+           bg-dark-800/80 border border-dark-600/50 
+           text-white placeholder-dark-400
+           focus:outline-none focus:ring-2 focus:ring-brand-purple-500/50 focus:border-brand-purple-500
+           transition-all duration-300;
+  }
+}
+
+/* ─── Custom Utilities ─────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-purple-400 to-brand-pink-400;
+  }
+
+  .text-gradient-bold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-purple-300 to-brand-pink-400 font-bold;
+  }
+
+  .glass {
+    @apply bg-dark-900/60 backdrop-blur-xl border border-dark-700/50;
+  }
+
+  .glass-card {
+    @apply bg-dark-900/40 backdrop-blur-xl border border-dark-700/30 rounded-2xl;
+  }
+
+  .glow-border {
+    @apply relative;
+    box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.3),
+                0 0 20px -5px rgba(124, 58, 237, 0.2),
+                0 0 20px -5px rgba(236, 72, 153, 0.2);
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-brand-purple-600 to-brand-pink-600 
+           hover:from-brand-purple-500 hover:to-brand-pink-500 
+           text-white font-semibold rounded-xl 
+           transition-all duration-300 
+           shadow-lg shadow-brand-purple-500/25 
+           hover:shadow-brand-pink-500/30
+           hover:scale-[1.02] active:scale-[0.98];
+  }
+}
+
+/* ─── Animations ───────────────────────────────────── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ─── Page Transitions ─────────────────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
